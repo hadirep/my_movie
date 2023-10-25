@@ -31,7 +31,6 @@ import 'package:my_movie/presentation/pages/tv_series/watchlist_tv_series_page.d
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:my_movie/injection.dart' as di;
 
 void main() {
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (_) => di.locator<MovieListBloc>(),

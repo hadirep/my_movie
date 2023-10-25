@@ -8,7 +8,6 @@ import 'package:my_movie/presentation/bloc/tv_series/tv_series_detail_bloc.dart'
 import 'package:my_movie/common/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:provider/provider.dart';
 import 'package:my_movie/presentation/bloc/tv_series/tv_series_detail_event.dart';
 import 'package:my_movie/presentation/bloc/tv_series/tv_series_detail_state.dart';
 
@@ -27,9 +26,9 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      Provider.of<TVSeriesDetailBloc>(context, listen: false)
+      BlocProvider.of<TVSeriesDetailBloc>(context)
           .add(OnDetailChanged(widget.id));
-      Provider.of<TVSeriesDetailBloc>(context, listen: false)
+      BlocProvider.of<TVSeriesDetailBloc>(context)
           .add(TVSeriesWatchlistStatus(widget.id));
     });
   }
@@ -138,12 +137,10 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
-                                  context
-                                      .read<TVSeriesDetailBloc>()
+                                  BlocProvider.of<TVSeriesDetailBloc>(context)
                                       .add(TVSeriesAddWatchlist(tvSeries));
                                 } else {
-                                  context
-                                      .read<TVSeriesDetailBloc>()
+                                  BlocProvider.of<TVSeriesDetailBloc>(context)
                                       .add(TVSeriesRemoveWatchlist(tvSeries));
                                 }
                               },
@@ -187,8 +184,7 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<TVSeriesDetailBloc,
-                                TVSeriesDetailState>(
+                            BlocBuilder<TVSeriesDetailBloc, TVSeriesDetailState>(
                               builder: (context, state) {
                                 if (state.tvSeriesRecommendationState ==
                                     RequestState.loading) {
@@ -211,10 +207,14 @@ class DetailContent extends StatelessWidget {
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
                                             onTap: () {
-                                              Navigator.pushReplacementNamed(
-                                                  context,
-                                                  TVSeriesDetailPage.routeName,
-                                                  arguments: tvSeries.id);
+                                              BlocProvider.of<TVSeriesDetailBloc>(
+                                                  context)
+                                                  .add(
+                                                  OnDetailChanged(tvSeries.id));
+                                              BlocProvider.of<TVSeriesDetailBloc>(
+                                                  context)
+                                                  .add(TVSeriesWatchlistStatus(
+                                                  tvSeries.id));
                                             },
                                             child: ClipRRect(
                                               borderRadius:
@@ -260,9 +260,7 @@ class DetailContent extends StatelessWidget {
                 ),
               );
             },
-            // initialChildSize: 0.5,
             minChildSize: 0.25,
-            // maxChildSize: 1.0,
           ),
         ),
         Padding(

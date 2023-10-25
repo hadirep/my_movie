@@ -21,7 +21,10 @@ class HomeTVSeriesPage extends StatefulWidget {
   State<HomeTVSeriesPage> createState() => _HomeTVSeriesPageState();
 }
 
-class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
+class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +35,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -8,7 +8,6 @@ import 'package:my_movie/presentation/bloc/movie/movie_detail_bloc.dart';
 import 'package:my_movie/common/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:provider/provider.dart';
 import 'package:my_movie/presentation/bloc/movie/movie_detail_event.dart';
 import 'package:my_movie/presentation/bloc/movie/movie_detail_state.dart';
 
@@ -26,12 +25,10 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<MovieDetailBloc>(context, listen: false)
-          .add(OnDetailChanged(widget.id));
-      Provider.of<MovieDetailBloc>(context, listen: false)
-          .add(MovieWatchlistStatus(widget.id));
-    });
+    BlocProvider.of<MovieDetailBloc>(context)
+        .add(OnDetailChanged(widget.id));
+    BlocProvider.of<MovieDetailBloc>(context)
+        .add(MovieWatchlistStatus(widget.id));
   }
 
   @override
@@ -53,7 +50,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   return AlertDialog(
                     content: Text(state.watchlistMessage),
                   );
-                });
+                },
+            );
           }
         },
         listenWhen: (previousState, currentState) =>
@@ -137,12 +135,10 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
-                                  context
-                                      .read<MovieDetailBloc>()
+                                  BlocProvider.of<MovieDetailBloc>(context)
                                       .add(MovieAddWatchlist(movie));
                                 } else {
-                                  context
-                                      .read<MovieDetailBloc>()
+                                  BlocProvider.of<MovieDetailBloc>(context)
                                       .add(MovieRemoveWatchlist(movie));
                                 }
                               },
@@ -262,9 +258,7 @@ class DetailContent extends StatelessWidget {
                 ),
               );
             },
-            // initialChildSize: 0.5,
             minChildSize: 0.25,
-            // maxChildSize: 1.0,
           ),
         ),
         Padding(
