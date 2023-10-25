@@ -1,0 +1,27 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/path.jpg",
+      "first_air_date": "2016-01-05",
+      "genre_ids": [
+        1,
+        2
+      ],
+      "id": 1,
+      "original_language": "en",
+      "original_name": "The Shannara Chronicles",
+      "overview": "Overview",
+      "origin_country": [
+        "US"
+      ],
+      "poster_path": "/path.jpg",
+      "popularity": 1.0,
+      "name": "The Shannara Chronicles",
+      "vote_average": 1.0,
+      "vote_count": 60
+    }
+  ],
+  "total_pages": 1,
+  "total_results": 10
+}

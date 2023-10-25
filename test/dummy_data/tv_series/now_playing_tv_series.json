@@ -1,0 +1,26 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "poster_path": "/path.jpg",
+      "popularity": 1.0,
+      "id": 1,
+      "backdrop_path": "/path.jpg",
+      "vote_average": 1.0,
+      "overview": "Overview",
+      "origin_country": [
+        "GB"
+      ],
+      "genre_ids": [
+        1,
+        2
+      ],
+      "original_language": "en",
+      "vote_count": 1,
+      "name": "Name",
+      "original_name": "Name"
+    }
+  ],
+  "total_pages": 47,
+  "total_results": 940
+}

@@ -1,0 +1,109 @@
+{
+  "backdrop_path": "/path.jpg",
+  "created_by": [
+    {
+      "id": 1,
+      "credit_id": "credit1",
+      "name": "David Benioff",
+      "gender": 2,
+      "profile_path": "/path.jpg"
+    },
+    {
+      "id": 2,
+      "credit_id": "credit2",
+      "name": "D. B. Weiss",
+      "gender": 2,
+      "profile_path": "/path.jpg"
+    }
+  ],
+  "episode_run_time": [
+    60
+  ],
+  "first_air_date": "2011-04-17",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    },
+    {
+      "id": 2,
+      "name": "Drama"
+    }
+  ],
+  "homepage": "http://www.google.com",
+  "id": 1,
+  "in_production": false,
+  "languages": [
+    "en"
+  ],
+  "last_air_date": "2019-05-19",
+  "last_episode_to_air": {
+    "air_date": "2019-05-19",
+    "episode_number": 6,
+    "id": 11,
+    "name": "The Iron Throne",
+    "overview": "Overview",
+    "production_code": "1",
+    "season_number": 8,
+    "still_path": "/path.jpg",
+    "vote_average": 1.0,
+    "vote_count": 10
+  },
+  "name": "Game of Thrones",
+  "next_episode_to_air": null,
+  "networks": [
+    {
+      "name": "HBO",
+      "id": 4,
+      "logo_path": "/path.png",
+      "origin_country": "US"
+    }
+  ],
+  "number_of_episodes": 7,
+  "number_of_seasons": 8,
+  "origin_country": [
+    "US"
+  ],
+  "original_language": "en",
+  "original_name": "Game of Thrones",
+  "overview": "Overview",
+  "popularity": 10.0,
+  "poster_path": "/path.jpg",
+  "production_companies": [
+    {
+      "id": 7,
+      "logo_path": "/path.png",
+      "name": "Revolution Sun Studios",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    }
+  ],
+  "seasons": [
+    {
+      "air_date": "2010-12-05",
+      "episode_count": 4,
+      "id": 7,
+      "name": "Specials",
+      "overview": "Overview",
+      "poster_path": "/path.jpg",
+      "season_number": 0
+    }
+  ],
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Status",
+  "tagline": "Tagline",
+  "type": "Type",
+  "vote_average": 1.0,
+  "vote_count": 100
+}
