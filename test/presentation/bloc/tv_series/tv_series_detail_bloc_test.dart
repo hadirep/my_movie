@@ -89,18 +89,18 @@ void main() {
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(
-            movieDetailState: RequestState.loading),
+            detailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          movieRecommendationState: RequestState.loading,
-          movieDetail: tTVSeriesDetail,
-          movieDetailState: RequestState.hasData,
+          recommendationState: RequestState.loading,
+          detail: tTVSeriesDetail,
+          detailState: RequestState.hasData,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          movieDetailState: RequestState.hasData,
-          movieDetail: tTVSeriesDetail,
-          movieRecommendationState: RequestState.hasData,
-          movieRecommendations: tTVSeries1,
+          detailState: RequestState.hasData,
+          detail: tTVSeriesDetail,
+          recommendationState: RequestState.hasData,
+          recommendations: tTVSeries1,
           message: '',
         ),
       ],
@@ -122,17 +122,17 @@ void main() {
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(
-            movieDetailState: RequestState.loading),
+            detailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-          movieRecommendationState: RequestState.loading,
-          movieDetail: tTVSeriesDetail,
-          movieDetailState: RequestState.hasData,
+          recommendationState: RequestState.loading,
+          detail: tTVSeriesDetail,
+          detailState: RequestState.hasData,
           message: '',
         ),
         tvSeriesDetailStateInit.copyWith(
-          movieDetailState: RequestState.hasData,
-          movieDetail: tTVSeriesDetail,
-          movieRecommendationState: RequestState.error,
+          detailState: RequestState.hasData,
+          detail: tTVSeriesDetail,
+          recommendationState: RequestState.error,
           message: 'Failed',
         ),
       ],
@@ -154,9 +154,9 @@ void main() {
       act: (bloc) => bloc.add(const OnDetailChanged(tId)),
       expect: () => [
         tvSeriesDetailStateInit.copyWith(
-            movieDetailState: RequestState.loading),
+            detailState: RequestState.loading),
         tvSeriesDetailStateInit.copyWith(
-            movieDetailState: RequestState.error, message: 'Failed'),
+            detailState: RequestState.error, message: 'Failed'),
       ],
       verify: (_) {
         verify(mockGetTVSeriesDetail.execute(tId));

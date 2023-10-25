@@ -44,7 +44,7 @@ void main() {
   testWidgets('Page should display center progress bar when loading',
       (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(TVSeriesDetailState.initial()
-        .copyWith(movieDetailState: RequestState.loading));
+        .copyWith(detailState: RequestState.loading));
 
     final progressBarFinder = find.byType(CircularProgressIndicator);
 
@@ -58,10 +58,10 @@ void main() {
       (WidgetTester tester) async {
     when(() => mockBloc.state)
         .thenReturn(TVSeriesDetailState.initial().copyWith(
-      movieDetailState: RequestState.hasData,
-      movieDetail: testTVSeriesDetail,
-      movieRecommendationState: RequestState.loading,
-      movieRecommendations: <TVSeries>[],
+      detailState: RequestState.hasData,
+      detail: testTVSeriesDetail,
+      recommendationState: RequestState.loading,
+      recommendations: <TVSeries>[],
       isAddedToWatchlist: false,
     ));
 
@@ -78,10 +78,10 @@ void main() {
       (WidgetTester tester) async {
     when(() => mockBloc.state)
         .thenReturn(TVSeriesDetailState.initial().copyWith(
-      movieDetailState: RequestState.hasData,
-      movieDetail: testTVSeriesDetail,
-      movieRecommendationState: RequestState.hasData,
-      movieRecommendations: [testTVSeries],
+      detailState: RequestState.hasData,
+      detail: testTVSeriesDetail,
+      recommendationState: RequestState.hasData,
+      recommendations: [testTVSeries],
       isAddedToWatchlist: false,
     ));
 
@@ -98,10 +98,10 @@ void main() {
       (WidgetTester tester) async {
     when(() => mockBloc.state)
         .thenReturn(TVSeriesDetailState.initial().copyWith(
-      movieDetailState: RequestState.hasData,
-      movieDetail: testTVSeriesDetail,
-      movieRecommendationState: RequestState.hasData,
-      movieRecommendations: [testTVSeries],
+      detailState: RequestState.hasData,
+      detail: testTVSeriesDetail,
+      recommendationState: RequestState.hasData,
+      recommendations: [testTVSeries],
       isAddedToWatchlist: true,
     ));
 
@@ -120,17 +120,17 @@ void main() {
         mockBloc,
         Stream.fromIterable([
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
           ),
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
             watchlistMessage: 'Added to Watchlist',
           ),
@@ -158,17 +158,17 @@ void main() {
         mockBloc,
         Stream.fromIterable([
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
           ),
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
             watchlistMessage: 'Removed from Watchlist',
           ),
@@ -197,25 +197,25 @@ void main() {
         mockBloc,
         Stream.fromIterable([
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
           ),
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
             watchlistMessage: 'Failed',
           ),
           TVSeriesDetailState.initial().copyWith(
-            movieDetailState: RequestState.hasData,
-            movieDetail: testTVSeriesDetail,
-            movieRecommendationState: RequestState.hasData,
-            movieRecommendations: [testTVSeries],
+            detailState: RequestState.hasData,
+            detail: testTVSeriesDetail,
+            recommendationState: RequestState.hasData,
+            recommendations: [testTVSeries],
             isAddedToWatchlist: false,
             watchlistMessage: 'Failed ',
           ),
@@ -242,7 +242,7 @@ void main() {
       (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(TVSeriesDetailState.initial()
         .copyWith(
-            movieDetailState: RequestState.error,
+            detailState: RequestState.error,
             message: 'Failed to connect to the network'));
 
     final textErrorBarFinder = find.text('Failed to connect to the network');

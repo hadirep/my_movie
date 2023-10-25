@@ -23,20 +23,20 @@ class TVSeriesDetailState extends Equatable {
   });
 
   TVSeriesDetailState copyWith({
-    TVSeriesDetail? movieDetail,
-    List<TVSeries>? movieRecommendations,
-    RequestState? movieDetailState,
-    RequestState? movieRecommendationState,
+    TVSeriesDetail? detail,
+    List<TVSeries>? recommendations,
+    RequestState? detailState,
+    RequestState? recommendationState,
     String? message,
     String? watchlistMessage,
     bool? isAddedToWatchlist,
   }) {
     return TVSeriesDetailState(
-      tvSeriesDetail: movieDetail ?? tvSeriesDetail,
-      tvSeriesRecommendations: movieRecommendations ?? tvSeriesRecommendations,
-      tvSeriesDetailState: movieDetailState ?? tvSeriesDetailState,
+      tvSeriesDetail: detail ?? tvSeriesDetail,
+      tvSeriesRecommendations: recommendations ?? tvSeriesRecommendations,
+      tvSeriesDetailState: detailState ?? tvSeriesDetailState,
       tvSeriesRecommendationState:
-          movieRecommendationState ?? tvSeriesRecommendationState,
+          recommendationState ?? tvSeriesRecommendationState,
       message: message ?? this.message,
       watchlistMessage: watchlistMessage ?? this.watchlistMessage,
       isAddedToWatchlist: isAddedToWatchlist ?? this.isAddedToWatchlist,

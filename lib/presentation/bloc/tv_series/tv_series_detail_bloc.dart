@@ -8,8 +8,7 @@ import 'package:my_movie/domain/usecases/tv_series/save_watchlist.dart';
 import 'package:my_movie/presentation/bloc/tv_series/tv_series_detail_event.dart';
 import 'package:my_movie/presentation/bloc/tv_series/tv_series_detail_state.dart';
 
-class TVSeriesDetailBloc
-    extends Bloc<TVSeriesDetailEvent, TVSeriesDetailState> {
+class TVSeriesDetailBloc extends Bloc<TVSeriesDetailEvent, TVSeriesDetailState> {
   final GetTVSeriesDetail getTVSeriesDetail;
   final GetTVSeriesRecommendations getTVSeriesRecommendations;
   final GetWatchListStatusTVSeries getWatchListStatus;
@@ -24,7 +23,7 @@ class TVSeriesDetailBloc
       : super(TVSeriesDetailState.initial()) {
     on<OnDetailChanged>(
       (event, emit) async {
-        emit(state.copyWith(movieDetailState: RequestState.loading));
+        emit(state.copyWith(detailState: RequestState.loading));
         final result = await getTVSeriesDetail.execute(event.id);
         final recommendationMovie =
             await getTVSeriesRecommendations.execute(event.id);
@@ -32,26 +31,26 @@ class TVSeriesDetailBloc
         result.fold(
           (failure) {
             emit(state.copyWith(
-              movieDetailState: RequestState.error,
+              detailState: RequestState.error,
               message: failure.message,
             ));
           },
           (detailMovie) {
             emit(state.copyWith(
-              movieRecommendationState: RequestState.loading,
+              recommendationState: RequestState.loading,
               message: '',
-              movieDetailState: RequestState.hasData,
-              movieDetail: detailMovie,
+              detailState: RequestState.hasData,
+              detail: detailMovie,
             ));
             recommendationMovie.fold((failure) {
               emit(state.copyWith(
-                movieRecommendationState: RequestState.error,
+                recommendationState: RequestState.error,
                 message: failure.message,
               ));
             }, (recommendation) {
               emit(state.copyWith(
-                movieRecommendations: recommendation,
-                movieRecommendationState: RequestState.hasData,
+                recommendations: recommendation,
+                recommendationState: RequestState.hasData,
                 message: '',
               ));
             });
