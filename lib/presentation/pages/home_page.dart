@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('Ditonton'),
+        title: const Text('My Movie'),
         actions: [
           IconButton(
             onPressed: () {
