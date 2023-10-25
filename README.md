@@ -1,3 +1,5 @@
+[![Codemagic build status](https://api.codemagic.io/apps/65392f92cec5a08259537c4c/65392f92cec5a08259537c4b/status_badge.svg)](https://codemagic.io/apps/65392f92cec5a08259537c4c/65392f92cec5a08259537c4b/latest_build)
+
 # my_movie
 
 A new Flutter project.
